@@ -1,0 +1,371 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #0a0a0f 0%,
+   #1a0a2e 45%,
+    #0d0d1a 100%
+     
+  );
+
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff; /* Default text color = white */
+}
+/* روابط */
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+/* الهيدر */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  position: relative;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #fff 30%, var(--accent));
+
+  background-clip: text;
+}
+.header-img {
+  width: 30px;
+  border-radius: 10px;
+  margin-bottom: -5px;
+  margin-right: 2px;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+header ul li a {
+  padding: 8px 20px;
+  border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active {
+  background: #fff;
+  color: #200016;
+}
+
+/* ── Logo Image ─────────────────────────────────────────────
+   ⬇️  CHANGE THE IMAGE PATH in index.html (look for logo.png).
+   This block just controls the size and shape of the logo box.
+──────────────────────────────────────────────────────────── */
+.logo-img {
+  width: 46px; /* ← CHANGE: logo width  */
+  height: 46px; /* ← CHANGE: logo height */
+  border-radius: 8px; /* slightly rounded corners on the logo */
+  object-fit: cover; /* keeps image proportions inside the box */
+
+  /* Shown as a colored box if the image file is missing */
+  background-color: #4a1a8a; /* ← CHANGE: fallback logo background color */
+
+  /* Simple solid border */
+  border: 2px solid #5c2d8a; /* ← CHANGE: logo border color */
+}
+
+/* ── Brand Name Text ────────────────────────────────────────
+   ⬇️  CHANGE THE TEXT in index.html (look for 'IPHONEK')
+──────────────────────────────────────────────────────────── */
+.brand-name {
+  font-size: 1.6rem; /* ← CHANGE: brand name font size */
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff; /* ← CHANGE: brand name text color */
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   PAGE TITLE SECTION — "Meet Our Team" heading + subtitle
+============================================================ */
+.page-title-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* ── Main Heading ─────────────────────────────────────────── */
+.page-title-section h1 {
+  font-size: 2.8rem; /* ← CHANGE: heading font size */
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff; /* ← CHANGE: heading color     */
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* The word "Team" shown in a different accent color */
+.page-title-section h1 .highlight {
+  color: #9d4edd; /* ← CHANGE: highlighted word color */
+}
+
+/* ── Decorative underline bar below heading ─────────────── */
+.title-underline {
+  width: 70px;
+  height: 3px;
+  background-color: #7b2ff7; /* ← CHANGE: underline bar color */
+  margin: 0 auto 16px auto;
+  border-radius: 10px;
+}
+
+/* ── Subtitle paragraph below the heading ───────────────── */
+.page-title-section p {
+  font-size: 1rem;
+  color: #9e8fb5; /* ← CHANGE: subtitle text color */
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   TEAM GRID — Holds all 6 team member cards.
+   CSS Grid creates 3 equal columns on wide screens.
+============================================================ */
+.team-grid {
+  display: grid;
+
+  /* 3 equal columns on desktop screens */
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px; /* ← CHANGE: space between cards */
+  max-width: 1100px;
+  margin: 0 auto; /* centers the grid horizontally on the page */
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   Adjusts the number of columns based on screen width.
+============================================================ */
+
+/* 2 columns on medium screens (tablets) */
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 column on small screens (phones) */
+@media (max-width: 560px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title-section h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================================
+   TEAM CARD — Individual card for each team member.
+============================================================ */
+.team-card {
+  /* Dark semi-transparent card background */
+  background-color: rgba(25, 10, 50, 0.9); /* ← CHANGE: card background color */
+
+  border-radius: 16px; /* ← CHANGE: how rounded the card corners are */
+  padding: 36px 24px 28px 24px;
+  text-align: center;
+
+  /* Simple solid border — no glow */
+  border: 1px solid rgba(120, 60, 180, 0.3); /* ← CHANGE: card border color */
+
+  /* Plain dark shadow for depth — no colored glow */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+
+  /* Smooth lift animation when the user hovers over a card */
+  transition: transform 0.3s ease;
+}
+
+/* ── Card Hover Effect ─────────────────────────────────────
+   The card lifts upward when hovered — no glow added.
+──────────────────────────────────────────────────────────── */
+.team-card:hover {
+  transform: translateY(-7px); /* lifts the card upward by 7px */
+}
+
+/* ============================================================
+   PROFILE PICTURE WRAPPER
+   A circular container for the member's photo.
+   ⬇️  See index.html to swap the placeholder emoji for a real image.
+============================================================ */
+.profile-pic-wrapper {
+  width: 110px; /* ← CHANGE: circle size (width)  */
+  height: 110px; /* ← CHANGE: circle size (height) */
+  margin: 0 auto 20px auto;
+  border-radius: 50%; /* makes it a perfect circle */
+
+  /* Simple solid border ring around the photo — no glow */
+  border: 3px solid #6a2fa0; /* ← CHANGE: photo ring border color */
+
+  overflow: hidden; /* clips photo/emoji to the circle shape */
+}
+
+/* ── Profile Picture Placeholder ─────────────────────────
+   This div is shown when no real image is provided.
+   It displays a purple gradient with an emoji icon inside.
+──────────────────────────────────────────────────────────── */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+
+  /* Purple gradient shown as the placeholder background */
+  background: linear-gradient(
+    145deg,
+    #3b1070,
+    /* ← CHANGE: placeholder top color    */ #7b3db5
+      /* ← CHANGE: placeholder bottom color  */
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem; /* ← CHANGE: size of the emoji icon */
+}
+
+/* If a real <img> is placed inside .profile-pic, it fills the circle */
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops image neatly to fill the circle */
+  display: block;
+}
+
+/* ============================================================
+   MEMBER NAME — Bold white text below the photo.
+   ⬇️  Change the actual name text in index.html below.
+============================================================ */
+.member-name {
+  font-size: 1.1rem; /* ← CHANGE: name font size  */
+  font-weight: 700;
+  color: #ffffff; /* ← CHANGE: name text color */
+  margin-bottom: 5px;
+  letter-spacing: 0.4px;
+}
+
+/* ============================================================
+   MEMBER ROLE — Small uppercase label between name and ID.
+   ⬇️  Change role text in index.html below.
+============================================================ */
+.member-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b07de0; /* ← CHANGE: role text color (muted purple) */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 7px;
+}
+
+/* ============================================================
+   MEMBER ID — Dimmed italic text below the name.
+   ⬇️  Change the ID numbers in index.html below.
+============================================================ */
+.member-id {
+  font-size: 0.78rem; /* ← CHANGE: ID text font size */
+  color: #7a6a94; /* ← CHANGE: ID text color (dimmed purple/gray) */
+  letter-spacing: 0.8px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* ============================================================
+   DIVIDER LINE — A thin horizontal line above the social icons.
+============================================================ */
+.card-divider {
+  width: 45%;
+  height: 1px;
+  background-color: rgba(120, 60, 180, 0.3); /* ← CHANGE: divider line color */
+  margin: 0 auto 18px auto;
+}
+
+/* ============================================================
+   SOCIAL ICONS ROW
+   Uses Unicode text symbols to represent social platforms.
+   ⬇️  You can replace symbols or wrap them in <a href=""> links.
+============================================================ */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* ← CHANGE: space between each icon circle */
+}
+
+/* Each individual social icon button */
+.social-icon {
+  width: 32px; /* ← CHANGE: icon circle width  */
+  height: 32px; /* ← CHANGE: icon circle height */
+  border-radius: 50%; /* makes the button a circle    */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem; /* ← CHANGE: size of the symbol text inside */
+  cursor: pointer;
+
+  /* Flat dark background — no glow effect */
+  background-color: rgba(
+    100,
+    50,
+    160,
+    0.2
+  ); /* ← CHANGE: icon background color */
+
+  /* Simple thin border around the icon */
+  border: 1px solid rgba(120, 60, 180, 0.35); /* ← CHANGE: icon border color   */
+
+  /* Symbol / text color inside the icon */
+  color: #b07de0; /* ← CHANGE: icon symbol color */
+
+  text-decoration: none; /* removes underline if icons are used as <a> links */
+
+  /* Smooth transition for hover effects */
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hover: slightly darker background + icon grows slightly */
+.social-icon:hover {
+  background-color: rgba(
+    51,
+    22,
+    87,
+    0.45
+  ); /* ← CHANGE: icon hover background */
+  transform: scale(1.12);
+}
+
+/* ============================================================
+   FOOTER — Small credit line at the very bottom of the page.
+   ⬇️  Edit the footer text in index.html below.
+============================================================ */
+footer {
+  text-align: center;
+  margin-top: 65px;
+  color: #8a69b7; /* ← CHANGE: footer text color */
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
